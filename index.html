@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <title>Vidhyabathi K | Data Scientist</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+            },
+            colors: {
+              navy: {
+                900: '#0a0f1c',
+                800: '#111827',
+                700: '#1e293b',
+              },
+              neon: {
+                cyan: '#06b6d4',
+                purple: '#8b5cf6',
+                teal: '#14b8a6',
+              }
+            },
+            animation: {
+              'blob': 'blob 7s infinite',
+              'glow': 'glow 2s ease-in-out infinite alternate',
+              'shimmer': 'shimmer 3s linear infinite',
+              'pulse-glow': 'pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'gradient': 'gradient 8s ease infinite',
+              'ripple': 'ripple 0.6s ease-out',
+            },
+            keyframes: {
+              blob: {
+                '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                '100%': { transform: 'translate(0px, 0px) scale(1)' },
+              },
+              glow: {
+                '0%': { boxShadow: '0 0 5px rgba(6, 182, 212, 0.5), 0 0 10px rgba(6, 182, 212, 0.3)' },
+                '100%': { boxShadow: '0 0 20px rgba(6, 182, 212, 0.8), 0 0 30px rgba(139, 92, 246, 0.6), 0 0 40px rgba(20, 184, 166, 0.4)' },
+              },
+              shimmer: {
+                '0%': { backgroundPosition: '-1000px 0' },
+                '100%': { backgroundPosition: '1000px 0' },
+              },
+              'pulse-glow': {
+                '0%, 100%': { opacity: 1, transform: 'scale(1)' },
+                '50%': { opacity: 0.8, transform: 'scale(1.05)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              gradient: {
+                '0%, 100%': { backgroundPosition: '0% 50%' },
+                '50%': { backgroundPosition: '100% 50%' },
+              },
+              ripple: {
+                '0%': { transform: 'scale(0)', opacity: 1 },
+                '100%': { transform: 'scale(4)', opacity: 0 },
+              },
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Custom scrollbar for dark theme */
+      .dark ::-webkit-scrollbar {
+        width: 8px;
+      }
+      .dark ::-webkit-scrollbar-track {
+        background: #0a0f1c; 
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #1e293b; 
+        border-radius: 4px;
+      }
+      .dark ::-webkit-scrollbar-thumb:hover {
+        background: #06b6d4; 
+      }
+      
+      /* Custom scrollbar for light theme */
+      .light ::-webkit-scrollbar {
+        width: 8px;
+      }
+      .light ::-webkit-scrollbar-track {
+        background: #f8fafc; 
+      }
+      .light ::-webkit-scrollbar-thumb {
+        background: #cbd5e1; 
+        border-radius: 4px;
+      }
+      .light ::-webkit-scrollbar-thumb:hover {
+        background: #06b6d4; 
+      }
+      
+      /* Premium Link Animations */
+      .premium-link {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .premium-link::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+      }
+      
+      .premium-link:hover::before {
+        left: 100%;
+      }
+      
+      .premium-link::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 2px;
+        background: linear-gradient(45deg, #06b6d4, #8b5cf6, #14b8a6, #06b6d4);
+        background-size: 300% 300%;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.3s;
+        animation: gradient 3s ease infinite;
+      }
+      
+      .premium-link:hover::after {
+        opacity: 1;
+      }
+      
+      .ripple-effect {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .ripple-effect::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(6, 182, 212, 0.6);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+      }
+      
+      .ripple-effect:active::before {
+        width: 300px;
+        height: 300px;
+      }
+      
+      .magnetic-hover {
+        transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      
+      .glow-on-hover {
+        transition: all 0.3s ease;
+      }
+      
+      .glow-on-hover:hover {
+        box-shadow: 0 0 20px rgba(6, 182, 212, 0.6),
+                    0 0 40px rgba(139, 92, 246, 0.4),
+                    0 0 60px rgba(20, 184, 166, 0.2);
+      }
+      
+      .shimmer-bg {
+        background: linear-gradient(
+          90deg,
+          rgba(6, 182, 212, 0.1) 0%,
+          rgba(139, 92, 246, 0.1) 50%,
+          rgba(20, 184, 166, 0.1) 100%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 3s linear infinite;
+      }
+      
+      /* 3D Transform Utilities */
+      .preserve-3d {
+        transform-style: preserve-3d;
+      }
+      
+      .perspective {
+        perspective: 1000px;
+      }
+      
+      /* 3D Card Hover Effect */
+      .card-3d {
+        transform-style: preserve-3d;
+        transition: transform 0.3s ease;
+      }
+      
+      .card-3d:hover {
+        transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+      }
+      
+      /* Animated Gradient Mesh */
+      @keyframes mesh {
+        0%, 100% {
+          transform: translate(0, 0) scale(1);
+        }
+        33% {
+          transform: translate(30px, -30px) scale(1.1);
+        }
+        66% {
+          transform: translate(-20px, 20px) scale(0.9);
+        }
+      }
+      
+      .mesh-gradient {
+        background: radial-gradient(
+          circle at 20% 50%,
+          rgba(6, 182, 212, 0.3) 0%,
+          transparent 50%
+        ),
+        radial-gradient(
+          circle at 80% 80%,
+          rgba(139, 92, 246, 0.3) 0%,
+          transparent 50%
+        ),
+        radial-gradient(
+          circle at 40% 20%,
+          rgba(20, 184, 166, 0.3) 0%,
+          transparent 50%
+        );
+        animation: mesh 20s ease infinite;
+      }
+      
+      /* Floating Hologram Effect */
+      .hologram-card {
+        position: relative;
+        animation: float-hologram 6s ease-in-out infinite;
+      }
+      
+      .hologram-card::before {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        border-radius: inherit;
+        padding: 2px;
+        background: linear-gradient(
+          45deg,
+          rgba(6, 182, 212, 0.3),
+          rgba(139, 92, 246, 0.3),
+          rgba(20, 184, 166, 0.3),
+          rgba(6, 182, 212, 0.3)
+        );
+        background-size: 300% 300%;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.3s;
+        animation: hologram-border 3s linear infinite;
+      }
+      
+      .hologram-card:hover::before {
+        opacity: 1;
+      }
+      
+      @keyframes float-hologram {
+        0%, 100% {
+          transform: translateY(0px) rotateY(0deg);
+        }
+        50% {
+          transform: translateY(-8px) rotateY(2deg);
+        }
+      }
+      
+      @keyframes hologram-border {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      
+      .hologram-card::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: inherit;
+        background: linear-gradient(
+          135deg,
+          rgba(6, 182, 212, 0.05) 0%,
+          transparent 50%,
+          rgba(139, 92, 246, 0.05) 100%
+        );
+        opacity: 0;
+        transition: opacity 0.3s;
+        pointer-events: none;
+      }
+      
+      .hologram-card:hover::after {
+        opacity: 1;
+      }
+    </style>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body class="antialiased overflow-x-hidden">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
