@@ -1,4 +1,5 @@
 import React from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { ThemeProvider, useTheme } from './contexts/ThemeContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -30,6 +31,7 @@ const AppContent: React.FC = () => {
       <Certifications />
       <Workshops />
       <Contact />
+      <Analytics />
     </div>
   );
 };
